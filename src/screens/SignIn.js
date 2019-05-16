@@ -11,6 +11,8 @@ import {
 import { connect } from 'react-redux'
 import { isSignedIn, signIn } from './../actions/auth'
 
+import Home from './Home'
+
 class SignIn extends Component {
     constructor(props) {
         super(props)
@@ -22,6 +24,7 @@ class SignIn extends Component {
     }
 
     render() {
+        if (this.props.loginSuccess) return (<Home />)
         return (
             <View style={styles.container}>
                 <TextInput
@@ -59,6 +62,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = store => ({
-    user: store.auth.user
+    user: store.auth.user,
+    loginSuccess: store.auth.loginSuccess
 })
 export default connect(mapStateToProps, { isSignedIn, signIn })(SignIn)

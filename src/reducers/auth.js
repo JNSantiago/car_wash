@@ -1,12 +1,14 @@
 const INITIAL_STATE = {
     user: '',
-    loadingSplash: true
+    loginSuccess: false
 }
 
 export const auth = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case 'SIGN_IN_SUCCESS':
-            return { ...state, user: action.payload.user, loadingSplash: action.payload.loadingSplash }
+            return { ...state, user: action.payload.user, loginSuccess: true }
+        case 'SIGN_OUT':
+            return { ...state, user: action.payload.user, loginSuccess: false }
         default:
             return state
     }

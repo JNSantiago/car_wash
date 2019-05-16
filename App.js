@@ -6,6 +6,7 @@ import { isSignedIn } from './src/actions/auth'
 
 import Home from './src/screens/Home'
 import SignIn from './src/screens/SignIn'
+import { AsyncStorage } from 'react-native'
 
 class App extends Component {
 
@@ -15,7 +16,7 @@ class App extends Component {
     this.state = {
       logged: false
     }
-
+    
     if (this.props.isSignedIn()) this.setState({logged: true})
   }
 

@@ -8,17 +8,18 @@ export const signIn = (email, password) => {
             email: 'joao.neto.ninja@gmail.com',
             password: '123456'
         }
-        axios.post('http://meubebe.teresina.pi.gov.br/api/login', body)
+        axios.post('http://192.168.43.212:3000/auth/sign_in', body)
             .then(res => {
-                AsyncStorage.setItem('user', JSON.stringify(res["data"]["success"]))
+                AsyncStorage.setItem('user', JSON.stringify(res["data"]))
 
                 dispatch({
                     type: 'SIGN_IN_SUCCESS',
                     payload: {
-                        user: res["data"]["success"]
+                        user: res["data"]
                     }
                 })
             }).catch(err => {
+                alert(err)
                 dispatch({
                     type: 'INTERNAL_SERVER_ERROR',
                     payload: {
@@ -36,8 +37,23 @@ export const isSignedIn = () => {
             dispatch({
                 type: 'SIGN_IN_SUCCESS',
                 payload: {
-                    user: user,
-                    loadingSplash: false
+                    user: user
+                }
+            })
+
+            return true
+        }
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        const user = AsyncStorage.removeItem('user')
+        if(user !== null) {
+            dispatch({
+                type: 'SIGN_OUT',
+                payload: {
+                    user: ''
                 }
             })
 
