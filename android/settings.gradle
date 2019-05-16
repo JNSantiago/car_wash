@@ -1,0 +1,3 @@
+rootProject.name = 'car_wash'
+
+include ':app'
