@@ -3,10 +3,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import { isSignedIn } from './src/actions/auth'
-
-import Home from './src/screens/Home'
 import SignIn from './src/screens/SignIn'
-import { AsyncStorage } from 'react-native'
+
+import Drawer from './src/routes/drawer'
 
 class App extends Component {
 
@@ -23,7 +22,7 @@ class App extends Component {
   render() {
     if (this.state.logged) {
       return (
-        <Home />
+        <Drawer />
       )
     }
       return (

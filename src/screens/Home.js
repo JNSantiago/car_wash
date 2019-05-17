@@ -16,6 +16,9 @@ const CARD_HEIGHT = height / 4;
 const CARD_WIDTH = CARD_HEIGHT - 50;
 
 class Home extends Component {
+    static navigationOptions = {
+        title: 'Mapa'
+    }
 
     state = {
         latitude: -5.0956638,
