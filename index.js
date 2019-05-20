@@ -11,6 +11,8 @@ const store = createStore(rootReducer, applyMiddleware(thunk))
 
 console.disableYellowBox = true;
 
+import DrawerNav from './src/routes'
+
 // App
 const ReduxApp = () => (
   <Provider store={store}>

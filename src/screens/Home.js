@@ -3,9 +3,10 @@ import {
     StyleSheet,
     Animated,
     Dimensions,
-    View
+    View,
+    Button
 } from 'react-native'
-import { Card, CardItem, Body, Text } from 'native-base';
+import { Card, CardItem, Body, Text, Icon } from 'native-base';
 
 import MapView from 'react-native-maps'
 import { Marker } from 'react-native-maps';
@@ -17,8 +18,8 @@ const CARD_WIDTH = CARD_HEIGHT - 50;
 
 class Home extends Component {
     static navigationOptions = {
-        title: 'Mapa'
-    }
+        title: 'Home',
+    };
 
     state = {
         latitude: -5.0956638,

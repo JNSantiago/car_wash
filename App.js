@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import { isSignedIn } from './src/actions/auth'
 import SignIn from './src/screens/SignIn'
 
-import Drawer from './src/routes/drawer'
+import DrawerNav from './src/routes'
 
 class App extends Component {
 
@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     if (this.state.logged) {
       return (
-        <Drawer />
+        <DrawerNav />
       )
     }
       return (

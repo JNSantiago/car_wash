@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux'
 import { isSignedIn, signIn } from './../actions/auth'
 
-import Home from './Home'
+import DrawerNav from './../routes'
 
 class SignIn extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class SignIn extends Component {
     }
 
     render() {
-        if (this.props.loginSuccess) return (<Home />)
+        if (this.props.loginSuccess) return (<DrawerNav />)
         return (
             <View style={styles.container}>
                 <TextInput
